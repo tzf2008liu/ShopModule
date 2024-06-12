@@ -45,9 +45,9 @@ COPY ["src/Modules/Shop.Module.ShoppingCart/Shop.Module.ShoppingCart.csproj", "s
 COPY ["src/Modules/Shop.Module.SmsSenderAliyun/Shop.Module.SmsSenderAliyun.csproj", "src/Modules/Shop.Module.SmsSenderAliyun/"]
 COPY ["src/Modules/Shop.Module.StorageGitHub/Shop.Module.StorageGitHub.csproj", "src/Modules/Shop.Module.StorageGitHub/"]
 COPY ["src/Modules/Shop.Module.StorageLocal/Shop.Module.StorageLocal.csproj", "src/Modules/Shop.Module.StorageLocal/"]
-RUN dotnet restore "./src/Shop.WebApi/./Shop.WebApi.csproj"
+RUN dotnet restore "./src/Shop.WebApi/Shop.WebApi.csproj"
 COPY . .
-WORKDIR "/src/src/Shop.WebApi"
+WORKDIR "/src/Shop.WebApi"
 RUN dotnet build "./Shop.WebApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
